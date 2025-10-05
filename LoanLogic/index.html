@@ -1,0 +1,81 @@
+<!--
+  LoanLogic - Loan Eligibility Checker
+  -------------------------------------
+  Instructions:
+  1. This HTML file creates a simple web page where users can check their loan eligibility.
+  2. Users provide the following inputs:
+     - Age
+     - Monthly Income
+     - Credit Score
+     - Desired Loan Amount
+  3. Clicking the "Check Eligibility" button will trigger JavaScript logic (in script.js)
+     to calculate and display whether the user is eligible for the loan.
+  4. The result will be displayed in the paragraph with id="statusResult".
+  5. External CSS file (style.css) is linked for styling.
+  6. External JavaScript file (script.js) contains all interactive functionality.
+  7. Input types are set to "number" to ensure only numeric values are entered.
+  8. Responsive design is supported via the viewport meta tag.
+-->
+
+<!DOCTYPE html>
+<!-- Declares that this document is HTML5 -->
+
+<html lang="en">
+<!-- Root HTML element with language set to English -->
+
+<head>
+  <!-- Head section contains metadata, title, links to CSS/JS -->
+
+  <meta charset="UTF-8">
+  <!-- Sets character encoding to UTF-8 for proper display of text -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Makes the page responsive on all devices -->
+
+  <title>LoanLogic - Loan Eligibility Checker</title>
+  <!-- Title of the web page displayed on browser tab -->
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Link to external CSS file for styling -->
+</head>
+
+<body>
+  <!-- Body section contains all visible content -->
+
+  <h1>LoanLogic 💼</h1>
+  <!-- Main heading of the page -->
+
+  <div class="container">
+    <!-- Container div to group the form elements -->
+
+    <h2>Check Your Loan Eligibility</h2>
+    <!-- Sub-heading for the loan eligibility form -->
+
+    <input type="number" id="age" placeholder="Enter your age">
+    <!-- Input for user's age -->
+    <!-- type="number" allows only numeric input -->
+    <!-- id="age" is used to access this input in JavaScript -->
+    <!-- placeholder shows text inside the input before user types -->
+
+    <input type="number" id="income" placeholder="Enter your monthly income (₹)">
+    <!-- Input for user's monthly income -->
+
+    <input type="number" id="creditScore" placeholder="Enter your credit score">
+    <!-- Input for user's credit score -->
+
+    <input type="number" id="loanAmount" placeholder="Desired loan amount (₹)">
+    <!-- Input for the loan amount the user wants -->
+
+    <button id="checkBtn">Check Eligibility</button>
+    <!-- Button to trigger the eligibility check -->
+    <!-- id="checkBtn" will be used in JavaScript to add click functionality -->
+
+    <p class="result" id="statusResult"></p>
+    <!-- Paragraph where the result will be displayed after checking -->
+  </div>
+
+  <script src="script.js"></script>
+  <!-- Link to external JavaScript file where functionality is implemented -->
+
+</body>
+</html>

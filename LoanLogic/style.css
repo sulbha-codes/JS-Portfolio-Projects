@@ -1,0 +1,108 @@
+/*
+  LoanLogic - Loan Eligibility Checker (CSS)
+  ------------------------------------------
+  Instructions:
+  1. This CSS file styles the LoanLogic HTML page.
+  2. Provides a clean, responsive, and user-friendly layout.
+  3. Styles include:
+     - Body layout and font
+     - Headings (h1)
+     - Container box for the form
+     - Input fields and buttons
+     - Result display styling
+  4. Hover effect is added for the button for better user experience.
+*/
+
+body {
+  /* Font for the entire page */
+  font-family: Arial, sans-serif;
+
+  /* Light background color */
+  background: #f0f4f8;
+
+  /* Use flexbox to center content vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Padding around the page content */
+  padding: 20px;
+}
+
+h1 {
+  /* Color of the main heading */
+  color: #333;
+}
+
+.container {
+  /* White background for the form */
+  background: #fff;
+
+  /* Padding inside the container */
+  padding: 20px;
+
+  /* Rounded corners */
+  border-radius: 10px;
+
+  /* Subtle shadow for depth */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  /* Maximum width to keep form compact */
+  max-width: 400px;
+
+  /* Full width up to max-width */
+  width: 100%;
+
+  /* Margin from top */
+  margin-top: 30px;
+}
+
+input, button {
+  /* Padding inside input fields and button */
+  padding: 10px;
+
+  /* Margin between input fields */
+  margin: 5px 0;
+
+  /* Make input and button fill container width */
+  width: 100%;
+
+  /* Font size for readability */
+  font-size: 16px;
+
+  /* Rounded corners */
+  border-radius: 5px;
+
+  /* Border style */
+  border: 1px solid #ccc;
+}
+
+button {
+  /* Button background color */
+  background: #4caf50;
+
+  /* Text color */
+  color: white;
+
+  /* Remove border */
+  border: none;
+
+  /* Pointer cursor on hover */
+  cursor: pointer;
+}
+
+button:hover {
+  /* Slightly darker background on hover */
+  background: #45a049;
+}
+
+.result {
+  /* Margin above the result text */
+  margin-top: 10px;
+
+  /* Make the result text bold */
+  font-weight: bold;
+
+  /* Font size of result text */
+  font-size: 16px;
+}
