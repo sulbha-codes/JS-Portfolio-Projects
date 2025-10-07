@@ -1,18 +1,33 @@
+// ======= Loan Eligibility Checker =======
+// This JavaScript checks if a person is eligible for a loan
+// based on their age, income, credit score, and loan amount.
+
+// Instructions:
+// 1. Input values are taken from HTML input fields.
+// 2. Validation ensures all inputs are numbers.
+// 3. Eligibility is checked using if–else statements.
+// 4. The result is displayed dynamically with color feedback.
+
+
+
 document.getElementById('checkBtn').addEventListener('click', function() {
+  
+  // Get values from input boxes
   const age = parseInt(document.getElementById('age').value);
   const income = parseFloat(document.getElementById('income').value);
   const creditScore = parseInt(document.getElementById('creditScore').value);
   const loanAmount = parseFloat(document.getElementById('loanAmount').value);
 
-  const statusElement = document.getElementById('statusResult');
-  let status = '';
-  let color = '';
+// Get the element where the result will be displayed
+const statusElement = document.getElementById('statusResult');
+let status = ''; // Message to show
+let color = '';  // Color of the message
 
-  // Input validation
+  // Check if all inputs are valid 
   if(isNaN(age) || isNaN(income) || isNaN(creditScore) || isNaN(loanAmount)){
     statusElement.innerText = "Please enter valid numbers for all fields.";
     statusElement.style.color = "red";
-    return;
+    return;// Stop the code if any input is missing or invalid
   }
 
   // Eligibility checks using conditionals
