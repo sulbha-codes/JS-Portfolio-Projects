@@ -1,108 +1,97 @@
-/*
-  LoanLogic - Loan Eligibility Checker (CSS)
-  ------------------------------------------
+/* 
+  LoanLogic 
+  ----------------------------------
   Instructions:
-  1. This CSS file styles the LoanLogic HTML page.
-  2. Provides a clean, responsive, and user-friendly layout.
-  3. Styles include:
-     - Body layout and font
-     - Headings (h1)
-     - Container box for the form
-     - Input fields and buttons
-     - Result display styling
-  4. Hover effect is added for the button for better user experience.
+  1. This CSS styles the LoanLogic HTML page.
+  2. Scoped classes are used for modularity.
+  3. CSS variables make theme updates easy.
+  4. Responsive design ensures mobile compatibility.
+  5. Includes hover and focus states for better UX.
 */
 
+:root {
+  /* CSS variables for easy global updates */
+  --primary-color: #4caf50;
+  --primary-hover: #45a049;
+  --bg-color: #f0f4f8;
+  --text-color: #333;
+  --input-border: #ccc;
+  --container-padding: 20px;
+  --border-radius: 10px;
+  --font-family: Arial, sans-serif;
+  --font-size: 16px;
+}
+
 body {
-  /* Font for the entire page */
-  font-family: Arial, sans-serif;
-
-  /* Light background color */
-  background: #f0f4f8;
-
-  /* Use flexbox to center content vertically and horizontally */
+  font-family: var(--font-family);
+  background: var(--bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* Padding around the page content */
   padding: 20px;
+  min-height: 100vh;
 }
 
 h1 {
-  /* Color of the main heading */
-  color: #333;
+  color: var(--text-color);
+  margin-bottom: 20px;
 }
 
 .container {
-  /* White background for the form */
+  /* Main form container */
   background: #fff;
-
-  /* Padding inside the container */
-  padding: 20px;
-
-  /* Rounded corners */
-  border-radius: 10px;
-
-  /* Subtle shadow for depth */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-  /* Maximum width to keep form compact */
+  padding: var(--container-padding);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-
-  /* Full width up to max-width */
   width: 100%;
-
-  /* Margin from top */
   margin-top: 30px;
 }
 
 input, button {
-  /* Padding inside input fields and button */
-  padding: 10px;
-
-  /* Margin between input fields */
-  margin: 5px 0;
-
-  /* Make input and button fill container width */
   width: 100%;
-
-  /* Font size for readability */
-  font-size: 16px;
-
-  /* Rounded corners */
+  padding: 10px;
+  margin: 5px 0;
+  font-size: var(--font-size);
   border-radius: 5px;
-
-  /* Border style */
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
+  box-sizing: border-box;
 }
 
 button {
-  /* Button background color */
-  background: #4caf50;
-
-  /* Text color */
-  color: white;
-
-  /* Remove border */
+  background: var(--primary-color);
+  color: #fff;
   border: none;
-
-  /* Pointer cursor on hover */
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  /* Slightly darker background on hover */
-  background: #45a049;
+  background: var(--primary-hover);
+}
+
+input:focus,
+button:focus {
+  outline: 2px solid var(--primary-color);
 }
 
 .result {
-  /* Margin above the result text */
   margin-top: 10px;
-
-  /* Make the result text bold */
   font-weight: bold;
+  font-size: var(--font-size);
+  text-align: center;
+}
 
-  /* Font size of result text */
-  font-size: 16px;
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+  input, button {
+    font-size: 14px;
+    padding: 8px;
+  }
+  h1 {
+    font-size: 24px;
+  }
 }
