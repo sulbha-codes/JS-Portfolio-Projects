@@ -1,0 +1,97 @@
+/* 
+  LoanLogic 
+  ----------------------------------
+  Instructions:
+  1. This CSS styles the LoanLogic HTML page.
+  2. Scoped classes are used for modularity.
+  3. CSS variables make theme updates easy.
+  4. Responsive design ensures mobile compatibility.
+  5. Includes hover and focus states for better UX.
+*/
+
+:root {
+  /* CSS variables for easy global updates */
+  --primary-color: #4caf50;
+  --primary-hover: #45a049;
+  --bg-color: #f0f4f8;
+  --text-color: #333;
+  --input-border: #ccc;
+  --container-padding: 20px;
+  --border-radius: 10px;
+  --font-family: Arial, sans-serif;
+  --font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.container {
+  /* Main form container */
+  background: #fff;
+  padding: var(--container-padding);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: var(--font-size);
+  border-radius: 5px;
+  border: 1px solid var(--input-border);
+  box-sizing: border-box;
+}
+
+button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+input:focus,
+button:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.result {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: var(--font-size);
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+  input, button {
+    font-size: 14px;
+    padding: 8px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+}
