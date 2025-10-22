@@ -45,6 +45,12 @@ checkBtn.addEventListener("click", () => {
   // Compute EMI
   // Update #result.innerHTML with eligibility message
 });
+
+const result = document.getElementById("result");
+
+result.innerHTML = message;  // Shows eligibility message
+result.style.color = color;   // Color based on approved/warn/error
+result.style.opacity = "1";   // Fade in animation
 // 👆🏻Addition//
 
 // Get the element where the result will be displayed
