@@ -68,6 +68,24 @@ select {
   font-size: 1.05rem;
 }
 
+button {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 1rem;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: scale(1.03);
+}
+
 /* THE END */
 
 .container {

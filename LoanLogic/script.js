@@ -38,6 +38,13 @@ themeToggle.addEventListener("click", () => {
 const loanType = document.getElementById("loanType");
 const selectedType = loanType.value; // Used in EMI calculation
 const rule = loanRules[selectedType];
+
+const checkBtn = document.getElementById("checkBtn");
+checkBtn.addEventListener("click", () => {
+  // Read inputs: loanType.value, amount.value, income.value, tenure.value
+  // Compute EMI
+  // Update #result.innerHTML with eligibility message
+});
 // 👆🏻Addition//
 
 // Get the element where the result will be displayed
