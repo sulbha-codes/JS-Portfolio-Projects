@@ -1,32 +1,18 @@
-// ======= Loan Eligibility Checker =======
-// This JavaScript checks if a person is eligible for a loan
-// based on their age, income, credit score, and loan amount.
-
-// Instructions:
-// 1. Input values are taken from HTML input fields.
-// 2. Validation ensures all inputs are numbers.
-// 3. Eligibility is checked using if–else statements.
-// 4. The result is displayed dynamically with color feedback.
-
-
-
-document.getElementById('checkBtn').addEventListener('click', function() {
-  
-  // Get values from input boxes
-  const age = parseInt(document.getElementById('age').value);
-  const income = parseFloat(document.getElementById('income').value);
-  const creditScore = parseInt(document.getElementById('creditScore').value);
-  const loanAmount = parseFloat(document.getElementById('loanAmount').value);
-
-  //Addition👇
-
+// Elements
 const themeToggle = document.getElementById("themeToggle");
+const loanType = document.getElementById("loanType");
+const ageInput = document.getElementById("age");
+const incomeInput = document.getElementById("income");
+const creditScoreInput = document.getElementById("creditScore");
+const loanAmountInput = document.getElementById("loanAmount");
+const checkBtn = document.getElementById("checkBtn");
+const result = document.getElementById("result");
 
-// Load saved theme from localStorage
+// Load saved theme
 document.body.classList.toggle("dark", localStorage.getItem("theme") === "dark");
 themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 
-// Toggle dark/light mode
+// Toggle dark/light theme
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   const mode = document.body.classList.contains("dark") ? "dark" : "light";
@@ -34,56 +20,50 @@ themeToggle.addEventListener("click", () => {
   themeToggle.textContent = mode === "dark" ? "☀️" : "🌙";
 });
 
-// input group addition
-const loanType = document.getElementById("loanType");
-const selectedType = loanType.value; // Used in EMI calculation
-const rule = loanRules[selectedType];
+// Loan rules
+const loanRules = {
+  home: { rate: 7.5, maxRatio: 0.6, minSalary: 25000 },
+  car: { rate: 7.9, maxRatio: 0.5, minSalary: 20000 },
+  personal: { rate: 10.6, maxRatio: 0.4, minSalary: 30000 },
+};
 
-const checkBtn = document.getElementById("checkBtn");
+// Eligibility check
 checkBtn.addEventListener("click", () => {
-  // Read inputs: loanType.value, amount.value, income.value, tenure.value
-  // Compute EMI
-  // Update #result.innerHTML with eligibility message
-});
+  const age = parseInt(ageInput.value);
+  const income = parseFloat(incomeInput.value);
+  const creditScore = parseInt(creditScoreInput.value);
+  const loanAmount = parseFloat(loanAmountInput.value);
+  const type = loanType.value;
 
-const result = document.getElementById("result");
-
-result.innerHTML = message;  // Shows eligibility message
-result.style.color = color;   // Color based on approved/warn/error
-result.style.opacity = "1";   // Fade in animation
-// 👆🏻Addition//
-
-// Get the element where the result will be displayed
-const statusElement = document.getElementById('statusResult');
-let status = ''; // Message to show
-let color = '';  // Color of the message
-
-  // Check if all inputs are valid 
-  if(isNaN(age) || isNaN(income) || isNaN(creditScore) || isNaN(loanAmount)){
-    statusElement.innerText = "Please enter valid numbers for all fields.";
-    statusElement.style.color = "red";
-    return;// Stop the code if any input is missing or invalid
+  // Validation
+  if (isNaN(age) || isNaN(income) || isNaN(creditScore) || isNaN(loanAmount)) {
+    result.innerHTML = "⚠️ Please fill all fields correctly!";
+    result.style.color = "var(--error)";
+    result.style.opacity = 1;
+    return;
   }
 
-  // Eligibility checks using conditionals
-  if(age < 21 || age > 60){
-    status = "Denied: Age not eligible";
-    color = "red";
-  } else if(creditScore < 600){
-    status = "Denied: Credit score too low";
-    color = "red";
-  } else if(income < 30000){
-    status = "Conditional: Income below threshold, need co-signer";
-    color = "orange";
-  } else if(loanAmount > income * 10){
-    status = "Conditional: Loan amount too high";
-    color = "orange";
+  let message = "";
+  let color = "";
+
+  if (age < 21 || age > 60) {
+    message = "❌ Denied: Age not eligible";
+    color = "var(--error)";
+  } else if (creditScore < 600) {
+    message = "❌ Denied: Credit score too low";
+    color = "var(--error)";
+  } else if (income < 30000) {
+    message = "⚠️ Conditional: Income below threshold, need co-signer";
+    color = "var(--warn)";
+  } else if (loanAmount > income * 10) {
+    message = "⚠️ Conditional: Loan amount too high";
+    color = "var(--warn)";
   } else {
-    status = "Approved: You are eligible for the loan!";
-    color = "green";
+    message = "✅ Approved: You are eligible for the loan!😃";
+    color = "var(--accent)";
   }
 
-  // Display result
-  statusElement.innerText = status;
-  statusElement.style.color = color;
+  result.innerHTML = message;
+  result.style.color = color;
+  result.style.opacity = 1;
 });
