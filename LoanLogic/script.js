@@ -18,6 +18,24 @@ document.getElementById('checkBtn').addEventListener('click', function() {
   const creditScore = parseInt(document.getElementById('creditScore').value);
   const loanAmount = parseFloat(document.getElementById('loanAmount').value);
 
+  //Addition👇
+
+const themeToggle = document.getElementById("themeToggle");
+
+// Load saved theme from localStorage
+document.body.classList.toggle("dark", localStorage.getItem("theme") === "dark");
+themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+// Toggle dark/light mode
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  const mode = document.body.classList.contains("dark") ? "dark" : "light";
+  localStorage.setItem("theme", mode);
+  themeToggle.textContent = mode === "dark" ? "☀️" : "🌙";
+});
+
+// 👆🏻Addition//
+
 // Get the element where the result will be displayed
 const statusElement = document.getElementById('statusResult');
 let status = ''; // Message to show

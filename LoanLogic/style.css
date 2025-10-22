@@ -31,11 +31,26 @@ body {
   padding: 20px;
   min-height: 100vh;
 }
-
+/* THE START OF ADDITION */
 h1 {
-  color: var(--text-color);
-  margin-bottom: 20px;
+  background: var(--text-accent);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  
 }
+
+header button {
+background: transparent;
+border: none;
+font-size: 1.2rem;
+cursor: pointer;
+color: white;
+}
+/* THE END */
 
 .container {
   /* Main form container */
