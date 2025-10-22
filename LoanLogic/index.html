@@ -29,6 +29,7 @@
 </head>
 
 <body>
+  <header>
 
   <h1>LoanLogic 💼</h1>
   <!-- Main heading of the page -->
@@ -39,6 +40,14 @@
 
     <h2>Check Your Loan Eligibility</h2>
     <!-- Sub-heading for the loan eligibility form -->
+     <div class="input-group">
+      <label for="loanType">Loan Type:</label>
+      <select id="loanType">
+         <option value="home">🏡 Home Loan</option>
+         <option value="car">🚗 Car Loan</option>
+          <option value="personal">💼 Personal Loan</option>
+        </select>
+      </div>
 
     <input type="number" id="age" placeholder="Enter your age">
     <!-- Input for user's age -->

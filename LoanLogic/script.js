@@ -34,6 +34,10 @@ themeToggle.addEventListener("click", () => {
   themeToggle.textContent = mode === "dark" ? "☀️" : "🌙";
 });
 
+// input group addition
+const loanType = document.getElementById("loanType");
+const selectedType = loanType.value; // Used in EMI calculation
+const rule = loanRules[selectedType];
 // 👆🏻Addition//
 
 // Get the element where the result will be displayed

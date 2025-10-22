@@ -50,6 +50,24 @@ font-size: 1.2rem;
 cursor: pointer;
 color: white;
 }
+
+.input-group{
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem
+
+}
+select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.05rem;
+}
+
 /* THE END */
 
 .container {
