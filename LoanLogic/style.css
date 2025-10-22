@@ -1,73 +1,127 @@
-/* 
-  LoanLogic 
-  ----------------------------------
-  Instructions:
-  1. This CSS styles the LoanLogic HTML page.
-  2. Scoped classes are used for modularity.
-  3. CSS variables make theme updates easy.
-  4. Responsive design ensures mobile compatibility.
-  5. Includes hover and focus states for better UX.
-*/
-
-:root {
-  /* CSS variables for easy global updates */
-  --primary-color: #4caf50;
-  --primary-hover: #45a049;
-  --bg-color: #f0f4f8;
-  --text-color: #333;
-  --input-border: #ccc;
-  --container-padding: 20px;
-  --border-radius: 10px;
-  --font-family: Arial, sans-serif;
-  --font-size: 16px;
+/* Reset & fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Theme variables */
+:root {
+  --bg: #f0f4f8;
+  --card: #ffffff;
+  --text: #222222;
+  --accent: #4CAF50;
+  --warn: #FF9800;
+  --error: #f44336;
+}
+
+body.dark {
+  --bg: #1b1b1b;
+  --card: #2a2a2a;
+  --text: #f5f5f5;
+  --accent: #4da3ff;
+  --warn: #ffb74d;
+  --error: #e57373;
+}
+
+/* Body layout */
 body {
-  font-family: var(--font-family);
-  background: var(--bg-color);
+  background: var(--bg);
+  color: var(--text);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
   min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
 }
-/* THE START OF ADDITION */
-h1 {
-  background: var(--text-accent);
+
+/* Header */
+header {
+  background: var(--accent);
   color: #fff;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  
+}
+
+header h1 {
+  text-align: center;
+  flex: 1;
 }
 
 header button {
-background: transparent;
-border: none;
-font-size: 1.2rem;
-cursor: pointer;
-color: white;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
 }
 
-.input-group{
+/* Main */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Container / Calculator box */
+.container, .calculator {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+  animation: zoomIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* Zoom in animation */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  color: var(--accent);
   margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Input groups */
+.input-group {
+  margin-bottom: 1rem;
 }
 
 label {
   display: block;
-  margin-bottom: 0.3rem
-
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
-select {
+
+input, select {
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
+/* Buttons */
 button {
   width: 100%;
   padding: 0.9rem;
@@ -78,6 +132,7 @@ button {
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 1rem;
   transition: transform 0.2s, background 0.3s;
 }
 
@@ -86,6 +141,7 @@ button:hover {
   transform: scale(1.03);
 }
 
+/* Result box */
 #result {
   margin-top: 1.5rem;
   background: var(--card);
@@ -94,79 +150,44 @@ button:hover {
   border-radius: 10px;
   text-align: center;
   opacity: 0;
-  animation: fadeUp 0.6s forwards;
+  transition: opacity 0.5s;
 }
 
-@keyframes fadeUp {
-  to { opacity: 1; }
-}
-
+/* Note */
 .note {
   font-size: 0.9rem;
   color: #555;
   margin-top: 0.5rem;
   text-align: center;
 }
+
 body.dark .note {
   color: #ccc;
 }
-/* THE END */
 
-.container {
-  /* Main form container */
-  background: #fff;
-  padding: var(--container-padding);
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  margin-top: 30px;
-}
-
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  font-size: var(--font-size);
-  border-radius: 5px;
-  border: 1px solid var(--input-border);
-  box-sizing: border-box;
-}
-
-button {
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: var(--primary-hover);
-}
-
-input:focus,
-button:focus {
-  outline: 2px solid var(--primary-color);
-}
-
-.result {
-  margin-top: 10px;
-  font-weight: bold;
-  font-size: var(--font-size);
+/* Footer */
+footer {
   text-align: center;
+  padding: 1rem;
+  background: var(--accent);
+  color: white;
+  width: 100%;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
-  .container {
-    padding: 15px;
+  .container, .calculator {
+    padding: 1.5rem;
   }
-  input, button {
-    font-size: 14px;
-    padding: 8px;
+
+  input, select, button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
   }
-  h1 {
-    font-size: 24px;
+
+  h2 {
+    font-size: 1.3rem;
   }
 }
