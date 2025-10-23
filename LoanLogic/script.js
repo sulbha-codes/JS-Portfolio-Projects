@@ -1,4 +1,27 @@
-// Elements
+/*
+  LoanLogic - JavaScript
+  ----------------------
+  Purpose:
+  - Handles loan eligibility checking based on user input.
+  - Applies real-world inspired rules for Home, Personal, Car, and Education loans.
+  - Displays approval, conditional, or denial messages dynamically.
+  - Shows interest rate for approved loans.
+  - Supports dark/light theme toggle with localStorage persistence.
+
+  Instructions:
+  1. Ensure HTML inputs have the correct IDs: themeToggle, loanType, age, income, creditScore, loanAmount, checkBtn, result.
+  2. Add new loan types by updating the loanRules object.
+  3. Eligibility logic can be modified inside the checkBtn click event or refactored into a separate function.
+  4. All results are displayed in the #result div, with colors for feedback.
+  5. Theme toggle automatically saves preference in localStorage.
+  */
+
+
+
+
+
+
+//// Elements References//////
 const themeToggle = document.getElementById("themeToggle");
 const loanType = document.getElementById("loanType");
 const ageInput = document.getElementById("age");
@@ -8,11 +31,11 @@ const loanAmountInput = document.getElementById("loanAmount");
 const checkBtn = document.getElementById("checkBtn");
 const result = document.getElementById("result");
 
-// Load saved theme
+//// Load saved theme from localstorage///
 document.body.classList.toggle("dark", localStorage.getItem("theme") === "dark");
 themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 
-// Toggle dark/light theme
+///// Toggle dark/light theme on click/////
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   const mode = document.body.classList.contains("dark") ? "dark" : "light";
@@ -20,6 +43,8 @@ themeToggle.addEventListener("click", () => {
   themeToggle.textContent = mode === "dark" ? "☀️" : "🌙";
 });
 
+// Loan Rules//
+// Define eligibility criteria and interest rates per loan type///
 const loanRules = {
   home: { minSalary: 40000, minCredit: 650, maxMultiplier: 15, rate: 7.5 },
   personal: { minSalary: 30000, minCredit: 700, maxMultiplier: 10, rate: 10.6 },
@@ -31,18 +56,19 @@ const loanRules = {
 
 
 
-// Eligibility check
+//// Eligibility check////
 checkBtn.addEventListener("click", () => {
+  // Parse user inputs //
   const age = parseInt(ageInput.value);
   const income = parseFloat(incomeInput.value);
   const creditScore = parseInt(creditScoreInput.value);
   const loanAmount = parseFloat(loanAmountInput.value);
   const type = loanType.value;
 
-  // Get selected loan rules
-const rule = loanRules[type] || loanRules.personal; // default fallback
+//// Get selected loan rules, default to personal if type not found///
+const rule = loanRules[type] || loanRules.personal; 
 
-  // Validation
+  //  Input Validation
   if (isNaN(age) || isNaN(income) || isNaN(creditScore) || isNaN(loanAmount)) {
     result.innerHTML = "⚠️ Please fill all fields correctly!";
     result.style.color = "var(--error)";
@@ -53,7 +79,7 @@ const rule = loanRules[type] || loanRules.personal; // default fallback
   let message = "";
 let color = "";
 
-// Apply real-world logic
+// Apply eligibility logic
 if (age < 21 || age > 60) {
   message = "❌ Denied: Age not eligible";
   color = "var(--error)";
@@ -71,7 +97,7 @@ if (age < 21 || age > 60) {
   color = "var(--accent)";
 }
   
-
+//Display result
   result.innerHTML = message;
   result.style.color = color;
   result.style.opacity = 1;
