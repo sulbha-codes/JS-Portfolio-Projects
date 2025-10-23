@@ -106,19 +106,20 @@ generateBtn.addEventListener('click', () => {
 
 let lastIndex = -1;
 
-function generateCompliment(name, hobby) {
-    let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * compliments.length);
-    } while (randomIndex === lastIndex);
-    lastIndex = randomIndex;
 
-    complimentDiv.classList.remove('show');
-    const complimentText = compliments[randomIndex]
+    let currentIndex = 0;
+    function generateCompliment(name, hobby) {
+    // Get the next compliment in order
+    const complimentText = compliments[currentIndex]
         .replaceAll("{name}", name)
         .replaceAll("{hobby}", hobby);
 
+    complimentDiv.classList.remove('show');
     complimentDiv.textContent = complimentText;
-    setTimeout(() => complimentDiv.classList.add('show'), 100);
-}
 
+    // Trigger fade-in effect
+    setTimeout(() => complimentDiv.classList.add('show'), 100);
+
+    // Move to the next compliment (loop back if at end)
+    currentIndex = (currentIndex + 1) % compliments.length;
+    }
