@@ -104,11 +104,21 @@ generateBtn.addEventListener('click', () => {
     generateCompliment(name, hobby);
 });
 
+let lastIndex = -1;
+
 function generateCompliment(name, hobby) {
-    const randomIndex = Math.floor(Math.random() * compliments.length);
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * compliments.length);
+    } while (randomIndex === lastIndex);
+    lastIndex = randomIndex;
+
+    complimentDiv.classList.remove('show');
     const complimentText = compliments[randomIndex]
-        .replace("{name}", name)
-        .replace("{hobby}", hobby);
+        .replaceAll("{name}", name)
+        .replaceAll("{hobby}", hobby);
 
     complimentDiv.textContent = complimentText;
+    setTimeout(() => complimentDiv.classList.add('show'), 100);
 }
+
