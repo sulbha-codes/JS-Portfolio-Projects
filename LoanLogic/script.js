@@ -20,12 +20,16 @@ themeToggle.addEventListener("click", () => {
   themeToggle.textContent = mode === "dark" ? "☀️" : "🌙";
 });
 
-// Loan rules
 const loanRules = {
-  home: { rate: 7.5, maxRatio: 0.6, minSalary: 25000 },
-  car: { rate: 7.9, maxRatio: 0.5, minSalary: 20000 },
-  personal: { rate: 10.6, maxRatio: 0.4, minSalary: 30000 },
+  home: { minSalary: 40000, minCredit: 650, maxMultiplier: 15, rate: 7.5 },
+  personal: { minSalary: 30000, minCredit: 700, maxMultiplier: 10, rate: 10.6 },
+  car: { minSalary: 25000, minCredit: 600, maxMultiplier: 12, rate: 8.2 },
+  education: { minSalary: 20000, minCredit: 650, maxMultiplier: 8, rate: 9.1 },
 };
+
+
+
+
 
 // Eligibility check
 checkBtn.addEventListener("click", () => {
@@ -34,6 +38,9 @@ checkBtn.addEventListener("click", () => {
   const creditScore = parseInt(creditScoreInput.value);
   const loanAmount = parseFloat(loanAmountInput.value);
   const type = loanType.value;
+
+  // Get selected loan rules
+const rule = loanRules[type] || loanRules.personal; // default fallback
 
   // Validation
   if (isNaN(age) || isNaN(income) || isNaN(creditScore) || isNaN(loanAmount)) {
@@ -44,24 +51,26 @@ checkBtn.addEventListener("click", () => {
   }
 
   let message = "";
-  let color = "";
+let color = "";
 
-  if (age < 21 || age > 60) {
-    message = "❌ Denied: Age not eligible";
-    color = "var(--error)";
-  } else if (creditScore < 600) {
-    message = "❌ Denied: Credit score too low";
-    color = "var(--error)";
-  } else if (income < 30000) {
-    message = "⚠️ Conditional: Income below threshold, need co-signer";
-    color = "var(--warn)";
-  } else if (loanAmount > income * 10) {
-    message = "⚠️ Conditional: Loan amount too high";
-    color = "var(--warn)";
-  } else {
-    message = "✅ Approved: You are eligible for the loan!😃";
-    color = "var(--accent)";
-  }
+// Apply real-world logic
+if (age < 21 || age > 60) {
+  message = "❌ Denied: Age not eligible";
+  color = "var(--error)";
+} else if (creditScore < rule.minCredit) {
+  message = `❌ Denied: Credit score too low (need ≥ ${rule.minCredit})`;
+  color = "var(--error)";
+} else if (income < rule.minSalary) {
+  message = `⚠️ Conditional: Income below threshold (need ₹${rule.minSalary.toLocaleString()} or co-signer)`;
+  color = "var(--warn)";
+} else if (loanAmount > income * rule.maxMultiplier) {
+  message = `⚠️ Conditional: Loan amount too high (max ₹${(income * rule.maxMultiplier).toLocaleString()})`;
+  color = "var(--warn)";
+} else {
+  message = `✅ Approved: You are eligible for the loan! 😃<br>💰 Interest Rate: ${rule.rate}%`;
+  color = "var(--accent)";
+}
+  
 
   result.innerHTML = message;
   result.style.color = color;
