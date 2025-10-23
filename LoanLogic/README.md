@@ -81,7 +81,7 @@ It combines practical **JavaScript-based logic** with a clean **UI design** to d
 | 🏡 Home Loan | ₹40,000 | ≥ 650 | 15× | 7.5% |
 | 💼 Personal Loan | ₹30,000 | ≥ 700 | 10× | 10.6% |
 | 🚗 Car Loan | ₹25,000 | ≥ 600 | 12× | 8.2% |
-| 🎓 Education Loan | ₹20,000 | ≥ 650 | 8× | 9.1% |
+
 
 ---
 
