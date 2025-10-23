@@ -12,6 +12,15 @@
 
 ---
 
+<!-- Technical Concept Badges -->
+![DOM Manipulation](https://img.shields.io/badge/DOM-Manipulation-blue?style=for-the-badge&logo=html5&logoColor=white)
+![Event Handling](https://img.shields.io/badge/Event%20Handling-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=black)
+![Conditional Statements](https://img.shields.io/badge/Conditionals-Logic-green?style=for-the-badge&logo=javascript&logoColor=white)
+![Template Literals](https://img.shields.io/badge/Template%20Literals-JS-orange?style=for-the-badge&logo=javascript&logoColor=white)
+![LocalStorage](https://img.shields.io/badge/LocalStorage-Persistence-purple?style=for-the-badge&logo=javascript&logoColor=white)
+
+---
+
 ## 📘 Note  
 
 📌 *The loan rates and eligibility parameters used in this project are based on realistic reference values from common banking standards, but are intended **for educational and demonstration purposes only**.  
