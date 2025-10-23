@@ -1,4 +1,6 @@
-/* Reset & fonts */
+/* =====================
+   1. Reset & Fonts
+   ===================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +8,9 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Theme variables */
+/* =====================
+   2. Theme Variables
+   ===================== */
 :root {
   --bg: #f0f4f8;
   --card: #ffffff;
@@ -25,7 +29,9 @@ body.dark {
   --error: #e57373;
 }
 
-/* Body layout */
+/* =====================
+   3. Base Layout
+   ===================== */
 body {
   background: var(--bg);
   color: var(--text);
@@ -35,7 +41,9 @@ body {
   transition: background 0.4s, color 0.4s;
 }
 
-/* Header */
+/* =====================
+   4. Header
+   ===================== */
 header {
   background: var(--accent);
   color: #fff;
@@ -60,7 +68,9 @@ header button {
   color: white;
 }
 
-/* Main */
+/* =====================
+   5. Main Container
+   ===================== */
 main {
   flex: 1;
   display: flex;
@@ -69,7 +79,6 @@ main {
   padding: 2rem;
 }
 
-/* Container / Calculator box */
 .container, .calculator {
   background: var(--card);
   padding: 2rem;
@@ -81,19 +90,17 @@ main {
   opacity: 0;
 }
 
-/* Zoom in animation */
+/* =====================
+   6. Animations
+   ===================== */
 @keyframes zoomIn {
-  0% {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-/* Headings */
+/* =====================
+   7. Headings
+   ===================== */
 h2 {
   text-align: center;
   color: var(--accent);
@@ -101,7 +108,9 @@ h2 {
   font-size: 1.5rem;
 }
 
-/* Input groups */
+/* =====================
+   8. Input Groups
+   ===================== */
 .input-group {
   margin-bottom: 1rem;
 }
@@ -121,7 +130,9 @@ input, select {
   font-size: 1rem;
 }
 
-/* Buttons */
+/* =====================
+   9. Buttons
+   ===================== */
 button {
   width: 100%;
   padding: 0.9rem;
@@ -141,7 +152,9 @@ button:hover {
   transform: scale(1.03);
 }
 
-/* Result box */
+/* =====================
+   10. Result Box
+   ===================== */
 #result {
   margin-top: 1.5rem;
   background: var(--card);
@@ -153,7 +166,9 @@ button:hover {
   transition: opacity 0.5s;
 }
 
-/* Note */
+/* =====================
+   11. Notes / Disclaimer
+   ===================== */
 .note {
   font-size: 0.9rem;
   color: #555;
@@ -165,7 +180,9 @@ body.dark .note {
   color: #ccc;
 }
 
-/* Footer */
+/* =====================
+   12. Footer
+   ===================== */
 footer {
   text-align: center;
   padding: 1rem;
@@ -176,18 +193,11 @@ footer {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
-/* Responsive adjustments */
+/* =====================
+   13. Responsive Adjustments
+   ===================== */
 @media (max-width: 480px) {
-  .container, .calculator {
-    padding: 1.5rem;
-  }
-
-  input, select, button {
-    font-size: 0.95rem;
-    padding: 0.7rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
+  .container, .calculator { padding: 1.5rem; }
+  input, select, button { font-size: 0.95rem; padding: 0.7rem; }
+  h2 { font-size: 1.3rem; }
 }
