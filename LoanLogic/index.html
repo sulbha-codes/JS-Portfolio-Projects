@@ -2,19 +2,26 @@
   LoanLogic - Loan Eligibility Checker
   -------------------------------------
   Instructions:
-  1. This HTML file creates a simple web page where users can check their loan eligibility.
+  1. This HTML file creates a web page where users can check their loan eligibility based on realistic financial rules.
   2. Users provide the following inputs:
+     - Loan Type (Home, Car, Personal, Education)
      - Age
      - Monthly Income
      - Credit Score
      - Desired Loan Amount
   3. Clicking the "Check Eligibility" button will trigger JavaScript logic (in script.js)
-     to calculate and display whether the user is eligible for the loan.
-  4. The result will be displayed in the paragraph with id="statusResult".
-  5. External CSS file (style.css) is linked for styling.
-  6. External JavaScript file (script.js) contains all interactive functionality.
-  7. Input types are set to "number" to ensure only numeric values are entered.
-  8. Responsive design is supported via the viewport meta tag.
+     to calculate and display whether the user is eligible, conditionally approved, or denied.
+  4. The app dynamically calculates the expected **interest rate** based on the selected loan type and displays it for approved loans.
+  5. The result will be displayed in the div with id="result".
+  6. External CSS file (style.css) is linked for styling.
+  7. External JavaScript file (script.js) contains all interactive functionality, including:
+     - Age, income, and credit score validation
+     - Loan eligibility rules per loan type
+     - Conditional messages for income or loan amount thresholds
+     - Dynamic interest rate display
+  8. Input types are set to "number" to ensure only numeric values are entered.
+  9. Dark/Light mode is available via the toggle button; preference is saved using localStorage.
+ 10. Responsive design is supported via the viewport meta tag.
 -->
 
 <!DOCTYPE html>
@@ -30,6 +37,7 @@
 <body>
   <header>
     <h1>LoanLogic 💼</h1>
+    <!-- Theme toggle button: switches between dark and light mode -->
     <button id="themeToggle" title="Toggle Dark/Light Mode">🌙</button>
   </header>
 
@@ -38,38 +46,53 @@
     <div class="container">
       <h2>Check Your Loan Eligibility</h2>
 
+      <!-- Loan Type Selection -->
       <div class="input-group">
         <label for="loanType">Loan Type:</label>
         <select id="loanType">
+          <!-- Selection determines which loan rules (salary, credit, max loan, rate) will be applied -->
           <option value="home">🏡 Home Loan</option>
           <option value="car">🚗 Car Loan</option>
           <option value="personal">💼 Personal Loan</option>
         </select>
       </div>
 
+      <!-- Age Input -->
       <div class="input-group">
         <label for="age">Age:</label>
         <input type="number" id="age" placeholder="Enter your age">
+        <!-- Age must be between 21–60 to be eligible -->
       </div>
 
+      <!-- Monthly Income Input -->
       <div class="input-group">
         <label for="income">Monthly Income (₹):</label>
         <input type="number" id="income" placeholder="Enter your monthly income">
+        <!-- Minimum income depends on selected loan type -->
       </div>
 
+      <!-- Credit Score Input -->
       <div class="input-group">
         <label for="creditScore">Credit Score:</label>
         <input type="number" id="creditScore" placeholder="Enter your credit score">
+        <!-- Minimum credit score varies per loan type -->
       </div>
 
+      <!-- Desired Loan Amount Input -->
       <div class="input-group">
         <label for="loanAmount">Desired Loan Amount (₹):</label>
         <input type="number" id="loanAmount" placeholder="Enter desired loan amount">
+        <!-- Maximum allowed = income * loan-type multiplier -->
       </div>
 
+      <!-- Button triggers JS eligibility logic -->
       <button id="checkBtn">Check Eligibility</button>
 
+      <!-- Result display: JS dynamically injects approval/conditional/denial message -->
       <div id="result" class="fade"></div>
+      <!-- Also displays interest rate for approved loans -->
+
+      <!-- Note / Disclaimer -->
       <p class="note">📌 All interest rates and eligibility criteria are indicative. This app is intended for educational purposes only; actual rates and approvals may vary in real-world scenarios.</p>
       
     </div>
@@ -79,6 +102,7 @@
     <p>© 2025 LoanLogic | Financial Clarity Simplified</p>
   </footer>
 
+<!-- script.js contains all interactive logic: validation, eligibility checks, conditional messages, dynamic interest rate, and dark/light theme -->
   <script src="script.js"></script>
 </body>
 </html>
