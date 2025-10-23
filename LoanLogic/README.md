@@ -13,6 +13,8 @@
 ---
 
 <!-- Technical Concept Badges -->
+## 💻 Core JavaScript Concepts Used
+
 ![DOM Manipulation](https://img.shields.io/badge/DOM-Manipulation-blue?style=for-the-badge&logo=html5&logoColor=white)
 ![Event Handling](https://img.shields.io/badge/Event%20Handling-JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=black)
 ![Conditional Statements](https://img.shields.io/badge/Conditionals-Logic-green?style=for-the-badge&logo=javascript&logoColor=white)
