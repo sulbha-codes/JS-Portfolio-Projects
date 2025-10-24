@@ -2,194 +2,194 @@
    1. Reset & Fonts
    ===================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding/border in element width/height */
+  font-family: "Poppins", sans-serif; /* Set base font */
 }
 
 /* =====================
    2. Theme Variables
    ===================== */
 :root {
-  --bg: #f0f4f8;
-  --card: #ffffff;
-  --text: #222222;
-  --accent: #4CAF50;
-  --warn: #FF9800;
-  --error: #f44336;
+  --bg: #f0f4f8;/* Light theme background */
+  --card: #ffffff;/* Light theme card background */
+  --text: #222222;/* Light theme text color */
+  --accent: #4CAF50;/* Primary accent color */
+  --warn: #FF9800;/* Warning color */
+  --error: #f44336;/* Error color */
 }
 
 body.dark {
-  --bg: #1b1b1b;
-  --card: #2a2a2a;
-  --text: #f5f5f5;
-  --accent: #4da3ff;
-  --warn: #ffb74d;
-  --error: #e57373;
+  --bg: #1b1b1b;/* Dark theme background */
+  --card: #2a2a2a;/* Dark theme card background */
+  --text: #f5f5f5;/* Dark theme text color */
+  --accent: #4da3ff;/* Dark theme accent */
+  --warn: #ffb74d;/* Dark theme warning */
+  --error: #e57373;/* Dark theme error */
 }
 
 /* =====================
    3. Base Layout
    ===================== */
 body {
-  background: var(--bg);
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  transition: background 0.4s, color 0.4s;
+  background: var(--bg);/* Apply theme background */
+  color: var(--text);/* Apply theme text color */
+  display: flex;/* Use flex for layout */
+  flex-direction: column;/* Stack children vertically */
+  min-height: 100vh;/* Full viewport height */
+  transition: background 0.4s, color 0.4s;/* Smooth theme change */
 }
 
 /* =====================
    4. Header
    ===================== */
 header {
-  background: var(--accent);
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: var(--accent);/* Header color */
+  color: #fff;/* Header text color */
+  padding: 1rem 2rem;/* Space inside header */
+  display: flex;/* Flex layout for children */
+  justify-content: space-between;/* Space between logo/title & button */
+  align-items: center;/* Center vertically */
+  width: 100%; /* Full width */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
 header h1 {
-  text-align: center;
-  flex: 1;
+  text-align: center; /* Center heading text */
+  flex: 1; /* Take available space */
 }
 
 header button {
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: white;
+  background: transparent;/* No background */
+  border: none; /* No border */
+  font-size: 1.2rem; /* Slightly larger font */
+  cursor: pointer; /* Pointer on hover */
+  color: white; /* White text */
 }
 
 /* =====================
    5. Main Container
    ===================== */
 main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
+  flex: 1; /* Fill remaining vertical space */
+  display: flex; /* Flex layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 2rem; /* Inner spacing */
 }
 
 .container, .calculator {
-  background: var(--card);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 500px;
-  animation: zoomIn 0.5s ease forwards;
-  opacity: 0;
+  background: var(--card); /* Card background */
+  padding: 2rem; /* Inner spacing */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+  width: 100%; /* Full width */
+  max-width: 500px; /* Limit width */
+  animation: zoomIn 0.5s ease forwards; /* Zoom in animation */
+  opacity: 0; /* Hidden initially */
 }
 
 /* =====================
    6. Animations
    ===================== */
 @keyframes zoomIn {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% { transform: scale(0.95); opacity: 0; } /* Start small & transparent */
+  100% { transform: scale(1); opacity: 1; } /* End full size & visible */
 }
 
 /* =====================
    7. Headings
    ===================== */
 h2 {
-  text-align: center;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  text-align: center; /* Center heading */
+  color: var(--accent); /* Accent color */
+  margin-bottom: 1.5rem;  /* Space below */
+  font-size: 1.5rem; /* Font size */
 }
 
 /* =====================
    8. Input Groups
    ===================== */
 .input-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Space between input blocks */
 }
 
 label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-weight: 500;
-  font-size: 1rem;
+  display: block; /* Stack above input */
+  margin-bottom: 0.3rem;  /* Space below label */
+  font-weight: 500; /* Medium weight */
+  font-size: 1rem; /* Font size */
 }
 
 input, select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
+  width: 100%; /* Full width */
+  padding: 0.75rem; /* Inner spacing */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
 }
 
 /* =====================
    9. Buttons
    ===================== */
 button {
-  width: 100%;
-  padding: 0.9rem;
-  margin-top: 1rem;
-  border: none;
-  background: var(--accent);
-  color: white;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform 0.2s, background 0.3s;
+  width: 100%; /* Full width */
+  padding: 0.9rem;/* Inner spacing */
+  margin-top: 1rem;/* Space above */
+  border: none;/* Remove border */
+  background: var(--accent);/* Button color */
+  color: white;/* Text color */
+  font-weight: bold; /* Bold text */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  font-size: 1rem; /* Font size */
+  transition: transform 0.2s, background 0.3s;/* Smooth hover effects */
 }
 
 button:hover {
-  background: #0056b3;
-  transform: scale(1.03);
+  background: #0056b3; /* Darker on hover */
+  transform: scale(1.03); /* Slightly enlarge */
 }
 
 /* =====================
    10. Result Box
    ===================== */
 #result {
-  margin-top: 1.5rem;
-  background: var(--card);
-  border: 1px dashed var(--accent);
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.5s;
+  margin-top: 1.5rem; /* Space above */
+  background: var(--card);/* Card background */
+  border: 1px dashed var(--accent); /* Dashed border */
+  padding: 1rem; /* Inner spacing */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center text */
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.5s; /* Smooth appearance */
 }
 
 /* =====================
    11. Notes / Disclaimer
    ===================== */
 .note {
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 0.5rem;
-  text-align: center;
+  font-size: 0.9rem; /* Smaller text */
+  color: #555; /* Grey text */
+  margin-top: 0.5rem; /* Space above */
+  text-align: center; /* Center text */
 }
 
 body.dark .note {
-  color: #ccc;
+  color: #ccc;/* Lighter grey for dark mode */
 }
 
 /* =====================
    12. Footer
    ===================== */
 footer {
-  text-align: center;
-  padding: 1rem;
-  background: var(--accent);
-  color: white;
-  width: 100%;
-  margin-top: auto;
+  text-align: center; /* Center text */
+  padding: 1rem;  /* Inner spacing */
+  background: var(--accent); /* Footer color */
+  color: white; /* Text color */
+  width: 100%; /* Full width */
+  margin-top: auto; /* Stick at bottom */
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
@@ -197,7 +197,7 @@ footer {
    13. Responsive Adjustments
    ===================== */
 @media (max-width: 480px) {
-  .container, .calculator { padding: 1.5rem; }
-  input, select, button { font-size: 0.95rem; padding: 0.7rem; }
-  h2 { font-size: 1.3rem; }
+  .container, .calculator { padding: 1.5rem; } /* Less padding on small screens */
+  input, select, button { font-size: 0.95rem; padding: 0.7rem; } /* Adjust inputs/buttons */ 
+  h2 { font-size: 1.3rem; } /* Smaller headings */
 }
