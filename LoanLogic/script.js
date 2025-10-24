@@ -1,21 +1,22 @@
-/*
-  LoanLogic - JavaScript
-  ----------------------
-  Purpose:
-  - Handles loan eligibility checking based on user input.
-  - Applies real-world inspired rules for Home, Personal, Car, and Education loans.
-  - Displays approval, conditional, or denial messages dynamically.
-  - Shows interest rate for approved loans.
-  - Supports dark/light theme toggle with localStorage persistence.
-
-  Instructions:
-  1. Ensure HTML inputs have the correct IDs: themeToggle, loanType, age, income, creditScore, loanAmount, checkBtn, result.
-  2. Add new loan types by updating the loanRules object.
-  3. Eligibility logic can be modified inside the checkBtn click event or refactored into a separate function.
-  4. All results are displayed in the #result div, with colors for feedback.
-  5. Theme toggle automatically saves preference in localStorage.
-  */
-
+/* ===========================================================
+   💼 Project: LoanLogic
+   ⚙️ File: script.js
+    Description: Core JavaScript logic handling input validation,
+      dynamic loan eligibility checks, theme toggling, and user feedback.
+   
+   ===========================================================
+   📘 Instructions for Developers:
+   1️⃣ This script controls app interactivity and logic flow.
+   2️⃣ Organized into logical sections:
+       - Element References
+       - Theme Handling (Dark/Light mode with localStorage)
+       - Loan Rules (Dynamic configuration per loan type)
+       - Eligibility Logic (Validations & Conditional Responses)
+       - Result Rendering
+   3️⃣ To add a new loan type → update the `loanRules` object.
+   4️⃣ To change eligibility logic → edit conditions inside the event listener.
+   5️⃣ Keep console logs minimal and maintain clear comments.
+   =========================================================== */
 
 
 
