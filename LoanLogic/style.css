@@ -1,3 +1,25 @@
+/* ===========================================================
+   💼 Project: LoanLogic
+    Description: A loan eligibility checker that validates inputs,
+      applies dynamic loan rules, and provides color-coded feedback.
+   🎨 File: style.css
+    Purpose: Defines the complete UI — layout, themes, animations,
+      and responsiveness.
+   
+   ===========================================================
+   📘 Instructions for Developers:
+   1️⃣ This stylesheet controls the full UI design of LoanLogic.
+   2️⃣ Organized section-wise for easy navigation:
+       - Reset & Fonts
+       - Theme Variables (Light/Dark)
+       - Layout, Buttons, Inputs, and Result Display
+       - Animations and Responsive Design
+   3️⃣ To modify colors → edit theme variables under :root and body.dark.
+   4️⃣ To adjust spacing or layout → tweak values inside Base Layout and Main Container.
+   5️⃣ To add new components → follow existing commenting style for clarity.
+   =========================================================== */
+
+
 /* =====================
    1. Reset & Fonts
    ===================== */
