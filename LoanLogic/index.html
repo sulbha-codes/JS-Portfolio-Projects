@@ -1,28 +1,40 @@
 <!--
   LoanLogic - Loan Eligibility Checker
-  -------------------------------------
+  -------------------------------------------------------------------------------------
+  About:
+  A simple, interactive web app that helps users estimate their loan eligibility 
+  based on age, income, credit score, and loan type.
+
   Instructions:
   1. This HTML file creates a web page where users can check their loan eligibility based on realistic financial rules.
   2. Users provide the following inputs:
-     - Loan Type (Home, Car, Personal, Education)
+     - Loan Type (Home, Car, Personal)
      - Age
      - Monthly Income
      - Credit Score
      - Desired Loan Amount
-  3. Clicking the "Check Eligibility" button will trigger JavaScript logic (in script.js)
-     to calculate and display whether the user is eligible, conditionally approved, or denied.
-  4. The app dynamically calculates the expected **interest rate** based on the selected loan type and displays it for approved loans.
-  5. The result will be displayed in the div with id="result".
-  6. External CSS file (style.css) is linked for styling.
-  7. External JavaScript file (script.js) contains all interactive functionality, including:
-     - Age, income, and credit score validation
-     - Loan eligibility rules per loan type
-     - Conditional messages for income or loan amount thresholds
-     - Dynamic interest rate display
-  8. Input types are set to "number" to ensure only numeric values are entered.
-  9. Dark/Light mode is available via the toggle button; preference is saved using localStorage.
- 10. Responsive design is supported via the viewport meta tag.
+  
+3. On clicking “Check Eligibility,” JavaScript logic (in `script.js`) runs:
+      - Validates input values
+      - Applies loan-type-specific rules (minimum income, credit score, and limits)
+      - Calculates and displays eligibility status
+      - Shows applicable interest rate for approved loans
+  4. Results dynamically appear inside the <div id="result"> container.
+  5. Styling is handled via `style.css` — includes responsive layout and theme transitions.
+  6. `script.js` handles:
+      - Input validation
+      - Eligibility calculation logic
+      - Dynamic message generation
+      - Dark/Light theme toggle with `localStorage`
+  7. All inputs use `type="number"` to ensure valid numeric entry.
+  8. The theme toggle button saves user preference for consistent UI.
+  9. Page supports full responsiveness via the viewport meta tag.
+
+  📘 Note:
+  This app is for **educational and demonstration purposes only**. 
+  Loan rates and eligibility criteria are simplified for learning.
 -->
+
 
 <!DOCTYPE html>
 <html lang="en">
