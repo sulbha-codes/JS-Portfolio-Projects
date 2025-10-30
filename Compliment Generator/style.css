@@ -56,15 +56,46 @@ button:hover {
     background: #5e35b1;
 }
 
-/* Compliment display */
-#compliment {
-    
-    font-size: 1.3rem;
-    margin: 20px 0;
-    min-height: 50px;
-    color: #34495e;
-}
+
 
 .hidden {
     display: none;
+}
+
+
+#compliment {
+  font-size: 1.3rem;
+  margin: 20px 0;
+  min-height: 50px;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  background: linear-gradient(135deg, #a43563, #6a323b, #ffb199);
+  
+}
+
+
+#compliment.show {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+
+/* --- Floating Sparkles --- */
+.sparkle {
+  position: fixed;
+  bottom: 0;
+  font-size: 1.5rem;
+  pointer-events: none;
+  animation: floatUp 2s ease-out forwards;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
 }

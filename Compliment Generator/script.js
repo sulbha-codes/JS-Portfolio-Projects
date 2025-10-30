@@ -1,6 +1,6 @@
 
 const compliments = [
-    "{name}, glad you’re here! Your compliments are ready!” ❤️",
+    "{name}, glad you’re here! Your compliments are ready! ❤️",
     "{name}, your {hobby} is so creative that paintbrushes are begging for tips! 🎨✨",
     "Keep shining, {name}! Your passion for {hobby} is inspiring! ✨",
     "{name}, your {hobby} is so brilliant that sunglasses need to be worn indoors! 😎🌟",
@@ -104,7 +104,6 @@ generateBtn.addEventListener('click', () => {
     generateCompliment(name, hobby);
 });
 
-let lastIndex = -1;
 
 
     let currentIndex = 0;
@@ -123,3 +122,18 @@ let lastIndex = -1;
     // Move to the next compliment (loop back if at end)
     currentIndex = (currentIndex + 1) % compliments.length;
     }
+
+    // Add sparkle effect
+addSparkles();
+
+    function addSparkles() {
+  const sparkle = document.createElement("span");
+  sparkle.textContent = "✨";
+  sparkle.classList.add("sparkle");
+  document.body.appendChild(sparkle);
+
+  sparkle.style.left = Math.random() * window.innerWidth + "px";
+  sparkle.style.animation = "floatUp 2s ease-out forwards";
+
+  setTimeout(() => sparkle.remove(), 2000);
+}
