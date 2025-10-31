@@ -169,3 +169,25 @@ header .tagline {
   font-weight: 600;
   color: #00796b;
 }
+
+/*   BANNER */
+.banner {
+  background: linear-gradient(to right, #a347a6, #f5c7f5);
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s forwards;
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
